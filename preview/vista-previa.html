@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sport Soccer 2027 - Vista Previa</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-dark:#0b4d2e; --green:#0f6b3d; --green-light:#148a4f;
+  --gold:#e8b400; --gold-light:#f2c94c; --red:#c0392b; --red-dark:#a52a20;
+  --white:#fff; --off-white:#f5f7f5; --text-dark:#1a2e22; --text-muted:#5b6d63;
+  --radius-lg:20px; --radius-md:14px; --radius-sm:8px;
+  --shadow:0 8px 24px rgba(11,77,46,0.12);
+  --font-display:"Poppins","Segoe UI",sans-serif; --font-body:"Inter","Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;width:100%;overflow-x:hidden;}
+body{font-family:var(--font-body);background:var(--off-white);color:var(--text-dark);}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+button{font-family:inherit;cursor:pointer;}
+.container{width:100%;max-width:1180px;margin:0 auto;padding:0 20px;}
+.site-header{background:linear-gradient(180deg,var(--green-dark),var(--green));border-bottom:4px solid var(--red);position:sticky;top:0;z-index:50;}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;max-width:1180px;margin:0 auto;gap:16px;flex-wrap:wrap;}
+.brand{display:flex;align-items:center;gap:10px;color:var(--white);}
+.brand-badge{width:44px;height:44px;border-radius:50%;background:var(--green-dark);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.brand-text{display:flex;flex-direction:column;line-height:1.05;}
+.brand-text .name{font-family:var(--font-display);font-weight:800;font-style:italic;font-size:19px;letter-spacing:.5px;}
+.brand-text .year{color:var(--gold-light);font-weight:700;font-size:13px;}
+.main-nav{display:flex;align-items:center;gap:22px;flex-wrap:wrap;}
+.main-nav a{color:var(--white);font-weight:600;font-size:14px;padding:6px 2px;position:relative;cursor:pointer;}
+.main-nav a.active{color:var(--gold-light);}
+.main-nav a.active::after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:3px;background:var(--gold);border-radius:2px;}
+.header-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.bets-pill{background:var(--red);color:var(--white);font-weight:700;font-size:14px;padding:10px 18px;border-radius:999px;border:none;display:flex;align-items:center;gap:8px;}
+.bets-pill:hover{background:var(--red-dark);}
+.lang-select{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.35);color:var(--white);border-radius:999px;padding:8px 12px;font-weight:600;font-size:13px;}
+.hero{background:linear-gradient(rgba(11,77,46,.82),rgba(11,77,46,.92)),url("https://images.unsplash.com/photo-1459865264687-595d652de67e?w=1200&q=80") center/cover;color:var(--white);border-radius:var(--radius-lg);text-align:center;padding:56px 24px;margin:24px auto;max-width:1140px;box-shadow:var(--shadow);}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--red);padding:8px 18px;border-radius:999px;font-weight:700;font-size:13px;letter-spacing:.5px;}
+.hero h1{font-family:var(--font-display);font-weight:800;font-style:italic;font-size:clamp(34px,7vw,62px);margin:18px 0 12px;letter-spacing:1px;}
+.hero p{max-width:620px;margin:0 auto 26px;color:rgba(255,255,255,.9);font-size:16px;line-height:1.5;}
+.hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-gold{background:var(--gold);color:var(--green-dark);font-weight:800;border:none;padding:14px 26px;border-radius:999px;font-size:15px;display:flex;align-items:center;gap:8px;}
+.btn-outline{background:rgba(255,255,255,.08);color:var(--white);border:1px solid rgba(255,255,255,.5);padding:14px 26px;border-radius:999px;font-size:15px;display:flex;align-items:center;gap:8px;font-weight:700;}
+.flag-icon{width:22px;height:16px;object-fit:cover;border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.08);vertical-align:-3px;margin-right:4px;}
+.sponsors-box{border:2px solid var(--gold);border-radius:var(--radius-lg);max-width:1140px;margin:0 auto 24px;padding:22px;text-align:center;background:var(--white);}
+.sponsors-title{color:var(--green);font-weight:800;letter-spacing:1px;margin-bottom:16px;font-size:15px;}
+.sponsors-row{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;align-items:center;}
+.sponsor-badge{display:flex;align-items:center;gap:8px;font-weight:700;color:var(--text-dark);background:var(--off-white);padding:10px 18px;border-radius:999px;font-size:14px;}
+.section{max-width:1140px;margin:0 auto 32px;padding:0 20px;}
+.section-title{display:flex;align-items:center;gap:10px;color:var(--green-dark);font-family:var(--font-display);font-weight:800;font-size:24px;margin-bottom:4px;}
+.section-sub{color:var(--text-muted);margin-bottom:18px;font-size:14px;}
+.player-list{display:flex;flex-direction:column;gap:12px;}
+.player-card{display:flex;align-items:center;justify-content:space-between;gap:14px;background:var(--white);border-radius:var(--radius-md);padding:14px 18px;box-shadow:var(--shadow);}
+.player-left{display:flex;align-items:center;gap:14px;}
+.player-avatar{width:52px;height:52px;border-radius:50%;background:var(--green-light);color:var(--white);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;flex-shrink:0;}
+.player-name{font-weight:700;font-size:16px;}
+.player-country{color:var(--text-muted);font-size:13px;display:flex;gap:6px;align-items:center;}
+.player-right{display:flex;align-items:center;gap:12px;}
+.player-goals{color:var(--green);font-weight:800;font-size:16px;}
+.player-rating{background:var(--gold-light);color:var(--green-dark);font-weight:700;font-size:13px;padding:4px 10px;border-radius:999px;}
+.matchday-card{background:var(--white);border-left:4px solid var(--red);border-radius:var(--radius-md);padding:18px;box-shadow:var(--shadow);}
+.matchday-grid{display:grid;grid-template-columns:1fr;gap:16px;}
+@media(min-width:720px){.matchday-grid{grid-template-columns:1fr 1fr;}}
+.matchday-header{display:flex;justify-content:space-between;align-items:center;color:var(--text-muted);font-size:13px;margin-bottom:12px;}
+.live-badge{background:#fdeaea;color:var(--red);font-weight:700;font-size:12px;padding:4px 10px;border-radius:999px;}
+.team-row{display:flex;align-items:center;justify-content:space-between;padding:6px 0;}
+.team-row-left{display:flex;align-items:center;gap:10px;font-weight:600;}
+.team-score{background:#e8f7ee;color:var(--green);font-weight:800;padding:3px 12px;border-radius:8px;min-width:34px;text-align:center;}
+.news-grid{display:grid;grid-template-columns:1fr;gap:18px;}
+@media(min-width:720px){.news-grid{grid-template-columns:1fr 1fr;}}
+@media(min-width:1020px){.news-grid{grid-template-columns:1fr 1fr 1fr;}}
+.news-card{background:var(--white);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;}
+.news-image{height:120px;background-size:cover;background-position:center;}
+.news-body{padding:16px 18px;}
+.news-time{color:var(--text-muted);font-size:12px;font-weight:700;letter-spacing:.4px;margin-bottom:8px;}
+.news-headline{font-weight:700;font-size:15px;line-height:1.4;}
+.groups-grid{display:grid;grid-template-columns:1fr;gap:20px;}
+@media(min-width:720px){.groups-grid{grid-template-columns:1fr 1fr;}}
+.group-card{background:var(--white);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow);}
+.group-header{background:var(--green);color:var(--white);font-weight:700;padding:12px 18px;}
+table.standings-table{width:100%;border-collapse:collapse;}
+.standings-table th{text-align:left;font-size:11px;color:var(--text-muted);padding:10px 14px 6px;border-bottom:2px solid var(--gold-light);}
+.standings-table td{padding:10px 14px;font-size:14px;border-bottom:1px solid #eef1ee;}
+.standings-table td.pts{color:var(--green);font-weight:800;}
+.team-cell{display:flex;align-items:center;gap:8px;font-weight:600;}
+.rank{color:var(--text-muted);width:18px;display:inline-block;}
+.bracket-title{text-align:center;font-weight:800;color:var(--text-dark);letter-spacing:1px;margin:8px 0 22px;font-size:15px;border-bottom:2px solid var(--gold);padding-bottom:14px;}
+.bracket-grid{display:grid;grid-template-columns:1fr;gap:28px;}
+@media(min-width:720px){.bracket-grid{grid-template-columns:1fr 1fr;}}
+.bracket-match{display:flex;align-items:center;gap:14px;}
+.bracket-teams{flex:1;display:flex;flex-direction:column;gap:8px;}
+.bracket-team{background:var(--white);border:1px solid #e6ebe6;border-radius:var(--radius-sm);padding:12px 14px;font-weight:600;display:flex;align-items:center;gap:10px;box-shadow:var(--shadow);}
+.bracket-vs-line{width:24px;height:2px;background:#d6ded6;}
+.bracket-winner{border:2px dashed #d6ded6;border-radius:var(--radius-sm);padding:14px;text-align:center;color:var(--text-muted);font-weight:700;font-size:13px;min-width:110px;}
+.stadium-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:8px;}
+@media(min-width:720px){.stadium-grid{grid-template-columns:1fr 1fr;}}
+@media(min-width:1020px){.stadium-grid{grid-template-columns:1fr 1fr 1fr;}}
+.stadium-card{background:var(--white);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow);}
+.stadium-photo{height:110px;background-size:cover;background-position:center;}
+.stadium-card-body{display:flex;gap:12px;align-items:center;padding:12px 16px;}
+.stadium-name{font-weight:700;font-size:14px;}
+.stadium-city{color:var(--text-muted);font-size:12px;}
+.bets-gate-wrap{display:flex;justify-content:center;padding:40px 20px;}
+.bets-gate{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow);max-width:460px;width:100%;overflow:hidden;}
+.bets-gate-header{background:var(--green);color:var(--white);padding:18px 22px;font-weight:800;display:flex;align-items:center;gap:10px;font-size:15px;letter-spacing:.4px;}
+.bets-gate-body{padding:28px 26px;}
+.gate-icon{width:72px;height:72px;border-radius:50%;background:var(--gold-light);display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 18px;}
+.gate-desc{text-align:center;color:var(--text-muted);font-size:14px;margin-bottom:22px;}
+.form-group{margin-bottom:16px;}
+.form-group label{display:block;font-weight:700;font-size:13px;margin-bottom:6px;}
+.form-group input{width:100%;border:1.5px solid #dde5dd;border-radius:var(--radius-sm);padding:12px 14px;font-size:14px;font-family:monospace;}
+.form-group input:focus{outline:none;border-color:var(--green);}
+.error-text{color:var(--red);font-size:12px;margin-top:6px;font-weight:600;}
+.btn-verify{width:100%;background:var(--green);color:var(--white);font-weight:700;border:none;padding:14px;border-radius:var(--radius-sm);font-size:15px;margin-top:4px;}
+.btn-verify:hover{background:var(--green-dark);}
+.gate-legal{text-align:center;font-size:11px;color:var(--text-muted);margin-top:16px;line-height:1.5;}
+.bets-unlocked-banner{background:#e8f7ee;color:var(--green-dark);font-weight:700;padding:14px 20px;border-radius:var(--radius-sm);margin-bottom:22px;text-align:center;font-size:14px;}
+.odds-grid{display:grid;grid-template-columns:1fr;gap:14px;}
+@media(min-width:720px){.odds-grid{grid-template-columns:1fr 1fr;}}
+.odds-card{background:var(--white);border-radius:var(--radius-md);padding:16px 18px;box-shadow:var(--shadow);}
+.odds-teams{font-weight:700;margin-bottom:12px;font-size:14px;}
+.odds-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-top:1px solid #eef1ee;font-size:13px;}
+.odds-value{background:var(--off-white);font-weight:800;color:var(--green);padding:4px 10px;border-radius:8px;}
+.btn-place{background:var(--red);color:var(--white);font-weight:700;border:none;padding:6px 14px;border-radius:999px;font-size:12px;}
+.site-footer{background:var(--green-dark);color:rgba(255,255,255,.85);padding:36px 20px 24px;margin-top:40px;}
+.footer-inner{max-width:1140px;margin:0 auto;text-align:center;}
+.footer-brand{font-family:var(--font-display);font-weight:800;font-style:italic;color:var(--white);font-size:18px;margin-bottom:6px;}
+.footer-sponsors{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:18px 0;}
+.footer-sponsors span{background:rgba(255,255,255,.08);padding:6px 14px;border-radius:999px;font-size:12px;font-weight:600;}
+.footer-legal{font-size:12px;color:rgba(255,255,255,.55);margin-top:14px;line-height:1.6;}
+.page{display:none;}
+.page.active{display:block;}
+.preview-banner{background:#fff7d6;color:#7a5b00;text-align:center;font-size:12px;padding:8px;font-weight:600;}
+</style>
+</head>
+<body>
+<div class="preview-banner">Vista previa estatica de Sport Soccer 2027 (datos de ejemplo, sin conexion real a MongoDB)</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" onclick="showPage('home')">
+      <div class="brand-badge">&#127942;</div>
+      <div class="brand-text"><span class="name">SPORT SOCCER</span><span class="year">2027</span></div>
+    </a>
+    <nav class="main-nav">
+      <a onclick="showPage('home')" data-page="home" class="active" id="nav-home">Inicio</a>
+      <a onclick="showPage('news')" data-page="news" id="nav-news">Noticias</a>
+      <a onclick="showPage('standings')" data-page="standings" id="nav-standings">Clasificaciones</a>
+      <a onclick="showPage('calendar')" data-page="calendar" id="nav-calendar">Calendario</a>
+    </nav>
+    <div class="header-actions">
+      <a class="bets-pill" onclick="showPage('bets')">&#128274; <span id="nav-bets">Apuestas</span></a>
+      <select class="lang-select" id="langSelect" onchange="setLang(this.value)">
+        <option value="es">ES</option>
+        <option value="en">EN</option>
+        <option value="fr">FR</option>
+        <option value="zh">中文</option>
+        <option value="pt">PT</option>
+      </select>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HOME -->
+  <section id="page-home" class="page active">
+    <div class="container">
+      <div class="hero">
+        <span class="hero-badge">&#127942; <span id="t-hero_badge"></span></span>
+        <h1>SPORT SOCCER 2027</h1>
+        <p id="t-hero_subtitle"></p>
+        <div class="hero-actions">
+          <a class="btn-gold" onclick="showPage('bets')">&#128200; <span id="t-hero_bets"></span></a>
+          <a class="btn-outline" onclick="showPage('calendar')">&#128197; <span id="t-hero_calendar"></span></a>
+        </div>
+      </div>
+      <div class="sponsors-box">
+        <div class="sponsors-title">&#11088; <span id="t-sponsors_title"></span> &#11088;</div>
+        <div class="sponsors-row" id="sponsorsRow"></div>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="matchday-card">
+        <div class="matchday-header">
+          <h2 class="section-title" style="margin-bottom:0;">&#128200; <span id="t-matchday"></span></h2>
+          <span class="live-badge" id="t-live"></span>
+        </div>
+        <div class="matchday-grid" id="matchdayGrid"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">&#11088; <span id="t-star_players"></span></h2>
+      <p class="section-sub" id="t-star_players_sub"></p>
+      <div class="player-list" id="playerList"></div>
+    </section>
+  </section>
+
+  <!-- NEWS -->
+  <section id="page-news" class="page">
+    <section class="section" style="margin-top:24px;">
+      <h2 class="section-title">&#128240; <span id="t-news_title"></span></h2>
+      <div class="news-grid" id="newsGrid"></div>
+    </section>
+  </section>
+
+  <!-- STANDINGS -->
+  <section id="page-standings" class="page">
+    <section class="section" style="margin-top:24px;">
+      <h2 class="section-title">&#127942; <span id="t-standings_title"></span></h2>
+      <div class="groups-grid" id="groupsGrid"></div>
+    </section>
+  </section>
+
+  <!-- CALENDAR -->
+  <section id="page-calendar" class="page">
+    <section class="section" style="margin-top:24px;">
+      <h2 class="section-title">&#128197; <span id="t-calendar_title"></span></h2>
+      <div class="bracket-title" id="t-round16"></div>
+      <div class="bracket-grid" id="bracketGrid"></div>
+      <h2 class="section-title" style="margin-top:40px;">&#127967; <span id="t-stadiums_title"></span></h2>
+      <div class="stadium-grid" id="stadiumGrid"></div>
+    </section>
+  </section>
+
+  <!-- BETS -->
+  <section id="page-bets" class="page">
+    <div id="betsGate" class="bets-gate-wrap">
+      <div class="bets-gate">
+        <div class="bets-gate-header">&#128737; <span id="t-bets_title"></span></div>
+        <div class="bets-gate-body">
+          <div class="gate-icon">&#128100;&#10133;</div>
+          <p class="gate-desc" id="t-bets_locked_desc"></p>
+          <form onsubmit="verifyCurp(event)">
+            <div class="form-group">
+              <label id="t-curp_label"></label>
+              <input id="curpInput" maxlength="18" required />
+              <div class="error-text" id="curpError" style="display:none;"></div>
+            </div>
+            <button class="btn-verify" type="submit" id="t-verify_btn"></button>
+          </form>
+          <p class="gate-legal" id="t-curp_legal"></p>
+        </div>
+      </div>
+    </div>
+    <section class="section" id="oddsBoard" style="display:none; margin-top:24px;">
+      <div class="bets-unlocked-banner">&#9989; <span id="t-bets_welcome"></span></div>
+      <div class="odds-grid" id="oddsGrid"></div>
+    </section>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">SPORT SOCCER 2027</div>
+    <div class="footer-sponsors" id="footerSponsors"></div>
+    <div class="footer-legal">© 2027 Sport Soccer. <span id="t-footer_rights"></span><br><span id="t-footer_disclaimer"></span></div>
+  </div>
+</footer>
+
+<script>
+const translations = {
+  es:{nav_home:"Inicio",nav_news:"Noticias",nav_standings:"Clasificaciones",nav_calendar:"Calendario",nav_bets:"Apuestas",
+    hero_badge:"TORNEO MUNDIAL OFICIAL",hero_subtitle:"Sigue a los 32 mejores equipos del mundo en la competición definitiva. Estadísticas en vivo, pronósticos y toda la emoción del fútbol.",
+    hero_bets:"Apuestas",hero_calendar:"Calendario",sponsors_title:"PATROCINADORES OFICIALES",
+    star_players:"Jugadores Estrella",star_players_sub:"Los 5 más destacados del último partido",goals:"G",
+    matchday:"Día de Partido",live:"En Vivo",news_title:"Noticias",standings_title:"Clasificaciones",
+    team:"EQUIPO",played:"PJ",diff:"DG",points:"PUNTOS",calendar_title:"Cuadro de Juego & Calendario",round16:"OCTAVOS DE FINAL",
+    winner:"Ganador",stadiums_title:"Sedes y Estadios",bets_title:"ZONA DE APUESTAS (18+)",
+    bets_locked_desc:"Verifica tu identidad con tu CURP oficial para acceder a las apuestas.",
+    curp_label:"CURP Oficial (Validación 18+)",verify_btn:"Verificar edad y continuar",
+    curp_invalid:"El formato del CURP no es válido.",curp_underage:"Debes ser mayor de edad para acceder a esta sección.",
+    curp_legal:"* Tus datos se usan solo para validar tu edad y no se almacenan.",
+    bets_welcome:"Acceso verificado. Bienvenido a la zona de apuestas.",bet_match_winner:"Ganador del partido",place_bet:"Apostar",
+    footer_rights:"Todos los derechos reservados.",footer_disclaimer:"Sitio con fines escolares. Las apuestas son simuladas.",
+    hoursAgo:n=>"HACE "+n+" HORAS", dayAgo:n=>"HACE "+n+" DÍA"},
+  en:{nav_home:"Home",nav_news:"News",nav_standings:"Standings",nav_calendar:"Calendar",nav_bets:"Bets",
+    hero_badge:"OFFICIAL WORLD TOURNAMENT",hero_subtitle:"Follow the 32 best teams in the world in the ultimate competition. Live stats, predictions and all the excitement of soccer.",
+    hero_bets:"Bets",hero_calendar:"Calendar",sponsors_title:"OFFICIAL SPONSORS",
+    star_players:"Star Players",star_players_sub:"Top 5 from the last match",goals:"G",
+    matchday:"Match Day",live:"Live",news_title:"News",standings_title:"Standings",
+    team:"TEAM",played:"PL",diff:"GD",points:"POINTS",calendar_title:"Bracket & Calendar",round16:"ROUND OF 16",
+    winner:"Winner",stadiums_title:"Venues & Stadiums",bets_title:"BETTING ZONE (18+)",
+    bets_locked_desc:"Verify your identity with your official ID to access betting.",
+    curp_label:"Official ID (18+ Validation)",verify_btn:"Verify age and continue",
+    curp_invalid:"The ID format is invalid.",curp_underage:"You must be an adult to access this section.",
+    curp_legal:"* Your data is used only to validate your age and is not stored.",
+    bets_welcome:"Access verified. Welcome to the betting zone.",bet_match_winner:"Match winner",place_bet:"Bet",
+    footer_rights:"All rights reserved.",footer_disclaimer:"School project site. Bets are simulated.",
+    hoursAgo:n=>n+" HOURS AGO", dayAgo:n=>n+" DAY AGO"},
+  fr:{nav_home:"Accueil",nav_news:"Actualités",nav_standings:"Classements",nav_calendar:"Calendrier",nav_bets:"Paris",
+    hero_badge:"TOURNOI MONDIAL OFFICIEL",hero_subtitle:"Suivez les 32 meilleures équipes du monde dans la compétition ultime. Statistiques en direct, pronostics et toute l'émotion du football.",
+    hero_bets:"Paris",hero_calendar:"Calendrier",sponsors_title:"SPONSORS OFFICIELS",
+    star_players:"Joueurs Vedettes",star_players_sub:"Le top 5 du dernier match",goals:"B",
+    matchday:"Jour de Match",live:"En Direct",news_title:"Actualités",standings_title:"Classements",
+    team:"ÉQUIPE",played:"MJ",diff:"DB",points:"POINTS",calendar_title:"Tableau & Calendrier",round16:"HUITIÈMES DE FINALE",
+    winner:"Vainqueur",stadiums_title:"Sites et Stades",bets_title:"ZONE DE PARIS (18+)",
+    bets_locked_desc:"Vérifiez votre identité avec votre pièce officielle pour accéder aux paris.",
+    curp_label:"Identifiant officiel (Validation 18+)",verify_btn:"Vérifier l'âge et continuer",
+    curp_invalid:"Le format de l'identifiant est invalide.",curp_underage:"Vous devez être majeur pour accéder à cette section.",
+    curp_legal:"* Vos données servent uniquement à valider votre âge et ne sont pas stockées.",
+    bets_welcome:"Accès vérifié. Bienvenue dans la zone de paris.",bet_match_winner:"Vainqueur du match",place_bet:"Parier",
+    footer_rights:"Tous droits réservés.",footer_disclaimer:"Site à but scolaire. Les paris sont simulés.",
+    hoursAgo:n=>"IL Y A "+n+" HEURES", dayAgo:n=>"IL Y A "+n+" JOUR"},
+  zh:{nav_home:"首页",nav_news:"新闻",nav_standings:"积分榜",nav_calendar:"赛程",nav_bets:"投注",
+    hero_badge:"官方世界锦标赛",hero_subtitle:"关注世界32支最佳球队的终极对决。实时数据、预测分析,尽享足球激情。",
+    hero_bets:"投注",hero_calendar:"赛程",sponsors_title:"官方赞助商",
+    star_players:"明星球员",star_players_sub:"上一场比赛最佳5人",goals:"球",
+    matchday:"比赛日",live:"直播中",news_title:"新闻",standings_title:"积分榜",
+    team:"球队",played:"场次",diff:"净胜球",points:"积分",calendar_title:"赛程表与日历",round16:"十六强赛",
+    winner:"胜者",stadiums_title:"赛场与体育场",bets_title:"投注专区 (18+)",
+    bets_locked_desc:"请使用官方证件验证身份以进入投注区。",
+    curp_label:"官方证件号 (18岁以上验证)",verify_btn:"验证年龄并继续",
+    curp_invalid:"证件格式无效。",curp_underage:"您必须年满18岁才能访问此区域。",
+    curp_legal:"* 您的数据仅用于验证年龄,不会被存储。",
+    bets_welcome:"验证成功,欢迎进入投注专区。",bet_match_winner:"比赛获胜方",place_bet:"投注",
+    footer_rights:"版权所有。",footer_disclaimer:"本网站为学校项目,投注为模拟功能。",
+    hoursAgo:n=>n+"小时前", dayAgo:n=>n+"天前"},
+  pt:{nav_home:"Início",nav_news:"Notícias",nav_standings:"Classificações",nav_calendar:"Calendário",nav_bets:"Apostas",
+    hero_badge:"TORNEIO MUNDIAL OFICIAL",hero_subtitle:"Acompanhe as 32 melhores seleções do mundo na competição definitiva. Estatísticas ao vivo, prognósticos e toda a emoção do futebol.",
+    hero_bets:"Apostas",hero_calendar:"Calendário",sponsors_title:"PATROCINADORES OFICIAIS",
+    star_players:"Jogadores Destaque",star_players_sub:"Os 5 melhores da última partida",goals:"G",
+    matchday:"Dia de Jogo",live:"Ao Vivo",news_title:"Notícias",standings_title:"Classificações",
+    team:"EQUIPE",played:"PJ",diff:"SG",points:"PONTOS",calendar_title:"Chaveamento & Calendário",round16:"OITAVAS DE FINAL",
+    winner:"Vencedor",stadiums_title:"Sedes e Estádios",bets_title:"ZONA DE APOSTAS (18+)",
+    bets_locked_desc:"Verifique sua identidade com seu documento oficial para acessar as apostas.",
+    curp_label:"Documento Oficial (Validação 18+)",verify_btn:"Verificar idade e continuar",
+    curp_invalid:"O formato do documento é inválido.",curp_underage:"Você precisa ser maior de idade para acessar esta seção.",
+    curp_legal:"* Seus dados são usados apenas para validar sua idade e não são armazenados.",
+    bets_welcome:"Acesso verificado. Bem-vindo à zona de apostas.",bet_match_winner:"Vencedor da partida",place_bet:"Apostar",
+    footer_rights:"Todos os direitos reservados.",footer_disclaimer:"Site com fins escolares. As apostas são simuladas.",
+    hoursAgo:n=>"HÁ "+n+" HORAS", dayAgo:n=>"HÁ "+n+" DIA"}
+};
+
+const newsKeys = {
+  es:["¡Histórico! Argentina avanza a la siguiente ronda tras un dramático empate.","Mbappé rompe récord de goleo en fase de grupos con un Hat-Trick.","Estadios listos: así lucen las sedes rumbo a los octavos de final.","Brasil remonta ante Suiza y sella su pase a eliminación directa.","Marruecos sorprende y termina primero en el Grupo F.","España golea 5-3 en un partidazo lleno de emociones."],
+  en:["Historic! Argentina advances to the next round after a dramatic draw.","Mbappé breaks group-stage scoring record with a hat-trick.","Stadiums ready: here's how the venues look ahead of the Round of 16.","Brazil comes back against Switzerland and seals its knockout spot.","Morocco surprises and finishes first in Group F.","Spain wins 5-3 in a thrilling, emotional match."],
+  fr:["Historique ! L'Argentine avance au tour suivant après un match nul spectaculaire.","Mbappé bat le record de buts en phase de groupes avec un triplé.","Stades prêts : voici à quoi ressemblent les sites avant les huitièmes de finale.","Le Brésil renverse la Suisse et valide sa place en phase à élimination directe.","Le Maroc surprend et termine premier du Groupe F.","L'Espagne s'impose 5-3 dans un match plein d'émotions."],
+  zh:["历史性时刻!阿根廷在一场戏剧性的平局后晋级下一轮。","姆巴佩帽子戏法打破小组赛进球纪录。","体育场准备就绪:十六强赛前各赛场风貌。","巴西逆转瑞士,锁定淘汰赛席位。","摩洛哥爆冷,以小组第一出线F组。","西班牙5-3取胜,奉献一场精彩绝伦的比赛。"],
+  pt:["Histórico! Argentina avança de fase após um empate dramático.","Mbappé quebra recorde de gols na fase de grupos com um hat-trick.","Estádios prontos: veja como estão as sedes rumo às oitavas de final.","Brasil vira contra a Suíça e garante vaga no mata-mata.","Marrocos surpreende e termina em primeiro no Grupo F.","Espanha vence de virada por 5-3 em jogo emocionante."]
+};
+
+const groups = {
+  A:[{name:"Qatar",iso:"qa",pj:3,dg:-4,pts:3},{name:"Ecuador",iso:"ec",pj:3,dg:2,pts:6},{name:"Senegal",iso:"sn",pj:3,dg:0,pts:4},{name:"Netherlands",iso:"nl",pj:3,dg:3,pts:7}],
+  B:[{name:"England",iso:"gb-eng",pj:3,dg:3,pts:7},{name:"Iran",iso:"ir",pj:3,dg:2,pts:6},{name:"USA",iso:"us",pj:3,dg:-1,pts:3},{name:"Wales",iso:"gb-wls",pj:3,dg:-4,pts:1}],
+  C:[{name:"Argentina",iso:"ar",pj:3,dg:4,pts:9},{name:"Saudi Arabia",iso:"sa",pj:3,dg:-1,pts:4},{name:"Mexico",iso:"mx",pj:3,dg:0,pts:4},{name:"Poland",iso:"pl",pj:3,dg:-3,pts:2}],
+  D:[{name:"France",iso:"fr",pj:3,dg:4,pts:9},{name:"Australia",iso:"au",pj:3,dg:0,pts:4},{name:"Denmark",iso:"dk",pj:3,dg:-1,pts:3},{name:"Tunisia",iso:"tn",pj:3,dg:-3,pts:2}],
+  E:[{name:"Spain",iso:"es",pj:3,dg:5,pts:7},{name:"Costa Rica",iso:"cr",pj:3,dg:-3,pts:3},{name:"Germany",iso:"de",pj:3,dg:1,pts:4},{name:"Japan",iso:"jp",pj:3,dg:-3,pts:3}],
+  F:[{name:"Belgium",iso:"be",pj:3,dg:2,pts:6},{name:"Canada",iso:"ca",pj:3,dg:-2,pts:3},{name:"Morocco",iso:"ma",pj:3,dg:3,pts:7},{name:"Croatia",iso:"hr",pj:3,dg:-3,pts:1}],
+  G:[{name:"Brazil",iso:"br",pj:3,dg:5,pts:9},{name:"Serbia",iso:"rs",pj:3,dg:-2,pts:3},{name:"Switzerland",iso:"ch",pj:3,dg:1,pts:5},{name:"Cameroon",iso:"cm",pj:3,dg:-4,pts:1}],
+  H:[{name:"Portugal",iso:"pt",pj:3,dg:4,pts:7},{name:"Ghana",iso:"gh",pj:3,dg:-1,pts:4},{name:"Uruguay",iso:"uy",pj:3,dg:2,pts:5},{name:"South Korea",iso:"kr",pj:3,dg:-5,pts:2}]
+};
+function flagImg(iso, cls){ return `<img class="flag-icon ${cls||''}" src="https://flagcdn.com/w40/${iso}.png" alt="">`; }
+
+const bracket = [
+  [{n:"Qatar",i:"qa"},{n:"Iran",i:"ir"}],[{n:"Argentina",i:"ar"},{n:"Australia",i:"au"}],[{n:"Spain",i:"es"},{n:"Japan",i:"jp"}],[{n:"Brazil",i:"br"},{n:"Switzerland",i:"ch"}],
+  [{n:"Netherlands",i:"nl"},{n:"England",i:"gb-eng"}],[{n:"France",i:"fr"},{n:"Tunisia",i:"tn"}],[{n:"Belgium",i:"be"},{n:"Morocco",i:"ma"}],[{n:"Portugal",i:"pt"},{n:"Uruguay",i:"uy"}]
+];
+
+const stadiums = [
+  {name:"Lusail Stadium",city:"Lusail, Qatar",photo:"https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=600&q=80"},
+  {name:"Al Bayt Stadium",city:"Al Khor, Qatar",photo:"https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?w=600&q=80"},
+  {name:"Khalifa International",city:"Doha, Qatar",photo:"https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?w=600&q=80"},
+  {name:"Education City",city:"Al Rayyan, Qatar",photo:"https://images.unsplash.com/photo-1459865264687-595d652de67e?w=600&q=80"},
+  {name:"974 Stadium",city:"Doha, Qatar",photo:"https://images.unsplash.com/photo-1550881111-7cfde14b8073?w=600&q=80"},
+  {name:"Al Janoub Stadium",city:"Al Wakrah, Qatar",photo:"https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?w=600&q=80"}
+];
+
+const matchDay = [
+  {stadium:stadiums[0],a:{n:"Qatar",i:"qa"},b:{n:"Ecuador",i:"ec"},sa:2,sb:1,minute:65},
+  {stadium:stadiums[1],a:{n:"Argentina",i:"ar"},b:{n:"Mexico",i:"mx"},sa:0,sb:0,minute:65},
+  {stadium:stadiums[2],a:{n:"France",i:"fr"},b:{n:"Tunisia",i:"tn"},sa:3,sb:1,minute:65},
+  {stadium:stadiums[3],a:{n:"Brazil",i:"br"},b:{n:"Switzerland",i:"ch"},sa:1,sb:2,minute:65}
+];
+
+const sponsors = ["Coca-Cola","Nike","Adidas","Visa"];
+
+const starPlayers = [
+  {name:"L. Messi",country:"Argentina",iso:"ar",goals:7,rating:9.8},
+  {name:"K. Mbappé",country:"France",iso:"fr",goals:8,rating:9.7},
+  {name:"Neymar Jr",country:"Brazil",iso:"br",goals:3,rating:9.2},
+  {name:"H. Kane",country:"England",iso:"gb-eng",goals:5,rating:9.1},
+  {name:"C. Gakpo",country:"Netherlands",iso:"nl",goals:4,rating:9.0}
+];
+
+let currentLang = "es";
+
+function applyTranslations(){
+  const dict = translations[currentLang];
+  document.getElementById("nav-home").textContent = dict.nav_home;
+  document.getElementById("nav-news").textContent = dict.nav_news;
+  document.getElementById("nav-standings").textContent = dict.nav_standings;
+  document.getElementById("nav-calendar").textContent = dict.nav_calendar;
+  document.getElementById("nav-bets").textContent = dict.nav_bets;
+  document.querySelectorAll("[id^='t-']").forEach(el=>{
+    const key = el.id.replace("t-","");
+    if(dict[key]) el.textContent = dict[key];
+  });
+
+  document.getElementById("sponsorsRow").innerHTML = sponsors.map(s=>`<div class="sponsor-badge">${s}</div>`).join("");
+  document.getElementById("footerSponsors").innerHTML = sponsors.map(s=>`<span>${s}</span>`).join("");
+
+  document.getElementById("matchdayGrid").innerHTML = matchDay.map(m=>`
+    <div style="padding:12px 4px;">
+      <div style="color:var(--text-muted);font-size:12px;margin-bottom:6px;">📍 ${m.stadium.name} · ⏱ ${m.minute}'</div>
+      <div class="team-row"><div class="team-row-left">${flagImg(m.a.i)} ${m.a.n}</div><div class="team-score">${m.sa}</div></div>
+      <div class="team-row"><div class="team-row-left">${flagImg(m.b.i)} ${m.b.n}</div><div class="team-score">${m.sb}</div></div>
+    </div>`).join("");
+
+  document.getElementById("playerList").innerHTML = starPlayers.map(p=>`
+    <div class="player-card">
+      <div class="player-left">
+        <div class="player-avatar">${p.name.split(" ").map(w=>w[0]).slice(0,2).join("")}</div>
+        <div><div class="player-name">${p.name}</div><div class="player-country">${flagImg(p.iso)} ${p.country}</div></div>
+      </div>
+      <div class="player-right"><span class="player-goals">${p.goals} ${dict.goals}</span><span class="player-rating">★ ${p.rating}</span></div>
+    </div>`).join("");
+
+  const newsPhotos = [
+    "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=500&q=80",
+    "https://images.unsplash.com/photo-1511886929837-354d827aae26?w=500&q=80",
+    "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=500&q=80",
+    "https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?w=500&q=80",
+    "https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?w=500&q=80",
+    "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=500&q=80"
+  ];
+  document.getElementById("newsGrid").innerHTML = newsKeys[currentLang].map((headline,i)=>{
+    const hours = [2,5,24,27,30,48][i];
+    const timeText = hours>=24 ? dict.dayAgo(Math.round(hours/24)) : dict.hoursAgo(hours);
+    return `<div class="news-card"><div class="news-image" style="background-image:url(${newsPhotos[i]})"></div>
+      <div class="news-body"><div class="news-time">🗓 ${timeText}</div><div class="news-headline">${headline}</div></div></div>`;
+  }).join("");
+
+  document.getElementById("groupsGrid").innerHTML = Object.entries(groups).map(([letter,teams])=>{
+    const sorted = [...teams].sort((a,b)=> b.pts-a.pts || b.dg-a.dg);
+    const rows = sorted.map((t,i)=>`<tr><td><span class="rank">${i+1}</span></td><td class="team-cell">${flagImg(t.iso)} ${t.name}</td><td>${t.pj}</td><td>${t.dg>0?"+"+t.dg:t.dg}</td><td class="pts">${t.pts}</td></tr>`).join("");
+    return `<div class="group-card"><div class="group-header">Grupo ${letter}</div>
+      <table class="standings-table"><thead><tr><th></th><th>${dict.team}</th><th>${dict.played}</th><th>${dict.diff}</th><th>${dict.points}</th></tr></thead>
+      <tbody>${rows}</tbody></table></div>`;
+  }).join("");
+
+  document.getElementById("bracketGrid").innerHTML = bracket.map((pair,i)=>`
+    <div class="bracket-match">
+      <div class="bracket-teams"><div class="bracket-team">${flagImg(pair[0].i)} ${pair[0].n}</div><div class="bracket-team">${flagImg(pair[1].i)} ${pair[1].n}</div></div>
+      <div class="bracket-vs-line"></div>
+      <div class="bracket-winner">🏆 ${dict.winner} ${i+1}</div>
+    </div>`).join("");
+
+  document.getElementById("stadiumGrid").innerHTML = stadiums.map(s=>`
+    <div class="stadium-card">
+      <div class="stadium-photo" style="background-image:url(${s.photo})"></div>
+      <div class="stadium-card-body"><div><div class="stadium-name">${s.name}</div><div class="stadium-city">📍 ${s.city}</div></div></div>
+    </div>`).join("");
+
+  document.getElementById("oddsGrid").innerHTML = matchDay.map(m=>`
+    <div class="odds-card"><div class="odds-teams" style="display:flex;align-items:center;gap:6px;">${flagImg(m.a.i)} ${m.a.n} vs ${m.b.n} ${flagImg(m.b.i)}</div>
+      <div class="odds-row"><span>${dict.bet_match_winner}: ${m.a.n}</span><span class="odds-value">1.85</span><button class="btn-place">${dict.place_bet}</button></div>
+      <div class="odds-row"><span>${dict.bet_match_winner}: ${m.b.n}</span><span class="odds-value">2.40</span><button class="btn-place">${dict.place_bet}</button></div>
+    </div>`).join("");
+}
+
+function setLang(code){ currentLang = code; applyTranslations(); }
+
+function showPage(name){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.getElementById("page-"+name).classList.add("active");
+  document.querySelectorAll(".main-nav a").forEach(a=>a.classList.remove("active"));
+  const navEl = document.getElementById("nav-"+name);
+  if(navEl) navEl.classList.add("active");
+}
+
+function validateCurpFormat(curp){
+  return /^[A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9]{2}$/.test(curp.toUpperCase());
+}
+function calculateAgeFromCurp(curp){
+  const yy = parseInt(curp.substring(4,6),10);
+  const mm = parseInt(curp.substring(6,8),10);
+  const dd = parseInt(curp.substring(8,10),10);
+  const currentYearFull = 2026;
+  const currentYear2 = currentYearFull % 100;
+  const century = yy > currentYear2 ? 1900 : 2000;
+  const birthDate = new Date(century+yy, mm-1, dd);
+  const today = new Date(2026,8,14);
+  let age = today.getFullYear()-birthDate.getFullYear();
+  const m = today.getMonth()-birthDate.getMonth();
+  if(m<0 || (m===0 && today.getDate()<birthDate.getDate())) age--;
+  return age;
+}
+function verifyCurp(e){
+  e.preventDefault();
+  const dict = translations[currentLang];
+  const input = document.getElementById("curpInput");
+  const errorEl = document.getElementById("curpError");
+  const curp = input.value.trim().toUpperCase();
+  if(!validateCurpFormat(curp)){
+    errorEl.textContent = dict.curp_invalid;
+    errorEl.style.display = "block";
+    return;
+  }
+  const age = calculateAgeFromCurp(curp);
+  if(age < 18){
+    errorEl.textContent = dict.curp_underage;
+    errorEl.style.display = "block";
+    return;
+  }
+  errorEl.style.display = "none";
+  document.getElementById("betsGate").style.display = "none";
+  document.getElementById("oddsBoard").style.display = "block";
+}
+
+applyTranslations();
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+# Dependencias de Node.js
+node_modules/
+**/node_modules/
+
+# Variables privadas
+.env
+**/.env
+
+# Archivos de compilación de React
+frontend/dist/
+
+# Archivos de registro
+*.log
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
