@@ -6,16 +6,17 @@ import News from "./pages/News";
 import Standings from "./pages/Standings";
 import Calendar from "./pages/Calendar";
 import Bets from "./pages/Bets";
+import Admin from "./pages/Admin";
 import { LanguageProvider } from "./context/LanguageContext";
 import { BetsAccessProvider } from "./context/BetsAccessContext";
-import { WalletProvider } from "./context/WalletContext";
+import { AdminProvider } from "./context/AdminContext";
 import "./styles/global.css";
 
 export default function App() {
   return (
     <LanguageProvider>
-      <BetsAccessProvider>
-        <WalletProvider>
+      <AdminProvider>
+        <BetsAccessProvider>
           <Header />
           <main>
             <Routes>
@@ -24,11 +25,12 @@ export default function App() {
               <Route path="/clasificaciones" element={<Standings />} />
               <Route path="/calendario" element={<Calendar />} />
               <Route path="/apuestas" element={<Bets />} />
+              <Route path="/admin" element={<Admin />} />
             </Routes>
           </main>
           <Footer />
-        </WalletProvider>
-      </BetsAccessProvider>
+        </BetsAccessProvider>
+      </AdminProvider>
     </LanguageProvider>
   );
 }
