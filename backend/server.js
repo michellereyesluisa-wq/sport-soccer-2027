@@ -1,3 +1,6 @@
+import adminRoutes from "./routes/admin.js";
+app.use("/api/admin", adminRoutes);
+
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
